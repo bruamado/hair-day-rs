@@ -1,6 +1,6 @@
-import { cva, cx, type VariantProps } from "class-variance-authority";
-import { Text } from "./text/text";
-import type React from "react";
+import { cva, cx, type VariantProps } from "class-variance-authority"
+import { Text } from "./text/text"
+import type React from "react"
 
 const buttonVariants = cva(
   "flex items-center justify-center cursor-pointer rounded-lg gap-2 select-none",
@@ -25,7 +25,7 @@ const buttonVariants = cva(
       uppercase: true,
     },
   }
-);
+)
 
 const buttonTextVariants = cva("", {
   variants: {
@@ -36,12 +36,12 @@ const buttonTextVariants = cva("", {
   defaultVariants: {
     variant: "primary",
   },
-});
+})
 
 interface ButtonProps
   extends Omit<React.ComponentProps<"button">, "size" | "disabled">,
     VariantProps<typeof buttonVariants> {
-  textProps?: React.ComponentProps<typeof Text>;
+  textProps?: React.ComponentProps<typeof Text>
 }
 
 export const Button = ({
@@ -76,5 +76,5 @@ export const Button = ({
         {children}
       </Text>
     </button>
-  );
-};
+  )
+}
