@@ -1,5 +1,5 @@
 import { cva, cx, type VariantProps } from "class-variance-authority"
-import { textVariants } from "./text/text-variants.const"
+import { textVariants } from "../text/text-variants.const"
 import React from "react"
 import type { Icon } from "@phosphor-icons/react"
 

@@ -1,9 +1,10 @@
-import { Button } from "./button"
-import { ButtonTime } from "./buttonTime"
+import { Button } from "./ui/button"
+import { ButtonTime } from "./ui/buttonTime"
 import { Logo } from "./Logo"
-import { TextInput } from "./text-input"
+import { TextInput } from "./ui/text-input"
 import { Text } from "./text/text"
 import { CalendarBlankIcon, UserSquareIcon } from "@phosphor-icons/react"
+import { DateInput } from "./ui/date-input"
 
 export const NewSchedule = () => {
   return (
@@ -27,11 +28,7 @@ export const NewSchedule = () => {
         >
           Data
         </Text>
-        <TextInput
-          id="date-dropdown"
-          Icon={CalendarBlankIcon}
-          placeholder="10/01/2024"
-        />
+        <DateInput id="date-dropdown" />
       </div>
       <div className="w-full flex flex-col gap-2">
         <Text as="span" title className="text-gray-200">

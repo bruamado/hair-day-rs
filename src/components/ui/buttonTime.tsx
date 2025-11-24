@@ -1,6 +1,6 @@
 import { cva, cx, type VariantProps } from "class-variance-authority"
 import React from "react"
-import { Text } from "./text/text"
+import { Text } from "../text/text"
 
 const buttonTimeVariants = cva(
   "flex items-center justify-center cursor-pointer rounded-lg gap-2 select-none border-none",

@@ -1,5 +1,5 @@
 import { cva, cx, type VariantProps } from "class-variance-authority"
-import { Text } from "./text/text"
+import { Text } from "../text/text"
 import type React from "react"
 
 const buttonVariants = cva(
