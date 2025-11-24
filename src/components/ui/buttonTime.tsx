@@ -32,7 +32,7 @@ const buttonTimeVariants = cva(
 interface ButtonTimeProps
   extends VariantProps<typeof buttonTimeVariants>,
     Omit<React.ComponentProps<"button">, "size" | "disabled"> {
-  time: `${string}:${string}`
+  time: string
 }
 
 export const ButtonTime = ({

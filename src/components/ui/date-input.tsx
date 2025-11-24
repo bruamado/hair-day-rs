@@ -1,6 +1,6 @@
 import { cva, cx, type VariantProps } from "class-variance-authority"
 import { textVariants } from "../text/text-variants.const"
-import React, { useRef, useState, type ReactElement } from "react"
+import React, { useRef } from "react"
 import { CalendarBlankIcon, CaretDownIcon } from "@phosphor-icons/react"
 
 const iconBaseClass = "absolute z-10 cursor-pointer"
@@ -68,12 +68,9 @@ const arrowDownIconVariants = cva(cx(iconBaseClass, "right-3"), {
 
 interface DateInputProps
   extends VariantProps<typeof dateInputVariants>,
-    Omit<React.ComponentProps<"input">, "size" | "disabled"> {
-  startWithTodayDate?: boolean
-}
+    Omit<React.ComponentProps<"input">, "size" | "disabled"> {}
 
 export const DateInput = ({
-  startWithTodayDate = true,
   size,
   disabled,
   variant,
@@ -81,7 +78,6 @@ export const DateInput = ({
   ...props
 }: DateInputProps) => {
   const inputRef = useRef<HTMLInputElement>(null)
-  const [today] = useState(new Date().toISOString().split("T")[0])
 
   const handleOpenCalendar = () => {
     if (!inputRef) return
@@ -96,7 +92,6 @@ export const DateInput = ({
       />
       <input
         type="date"
-        defaultValue={startWithTodayDate ? today : undefined}
         ref={inputRef}
         className={cx(
           dateInputVariants({ size, disabled, variant }),
