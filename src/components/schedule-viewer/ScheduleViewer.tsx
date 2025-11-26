@@ -33,7 +33,11 @@ export const ScheduleViewer = ({
             Consulte os seus cortes de cabelo agendados por dia
           </Text>
         </div>
-        <DateInput className="w-44" onChange={handleChangeDate} />
+        <DateInput
+          className="w-44"
+          onChange={handleChangeDate}
+          defaultValue={selectedDate}
+        />
       </div>
 
       <DayTasks date={selectedDate} />

@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Period } from "../enums/period.enum"
 
 export type TimeSlot = {
@@ -12,7 +12,18 @@ export type DaySchedule = TimeSlot[]
 export type Schedule = Record<string, DaySchedule>
 
 export const useScheduleState = () => {
-  const [schedule, setSchedule] = useState<Schedule>({})
+  const scheduleLocalStorageKey = "schedule"
+  let initialValue = {} as Schedule
+  if (typeof Storage !== "undefined") {
+    const scheduleLocalStorage = localStorage.getItem(scheduleLocalStorageKey)
+    if (scheduleLocalStorage) {
+      initialValue = JSON.parse(scheduleLocalStorage)
+    }
+  } else {
+    console.error("Sorry, no Web storage support!")
+  }
+
+  const [schedule, setSchedule] = useState<Schedule>(initialValue)
 
   const addSchedule = (
     date: string,
@@ -63,6 +74,11 @@ export const useScheduleState = () => {
   const isTimeTakenOnDate = (date: string, time: string): boolean => {
     return (schedule[date] ?? []).some((slot) => slot.time === time)
   }
+
+  useEffect(() => {
+    const scheduleSerialized = JSON.stringify(schedule)
+    localStorage.setItem(scheduleLocalStorageKey, scheduleSerialized)
+  }, [schedule])
 
   return {
     schedule,
