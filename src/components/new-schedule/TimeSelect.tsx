@@ -49,13 +49,14 @@ export const TimeSelect = ({
         Horários
       </Text>
       {scheduleTimes.map((scheduleItem) => (
-        <div className="mb-1" key={scheduleItem.period}>
+        <div className="mb-1" key={scheduleItem.label}>
           <Text as="span" size="sm" className="text-gray-200">
             {scheduleItem.label}
           </Text>
           <div className="flex flex-wrap gap-2 mt-2">
             {scheduleItem.times?.map((time) => (
               <ButtonTime
+                key={time}
                 time={time}
                 disabled={isTimeTakenOnDate(date, time)}
                 selected={isSelected(time)}
