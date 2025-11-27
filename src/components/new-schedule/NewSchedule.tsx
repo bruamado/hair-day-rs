@@ -54,7 +54,7 @@ export const NewSchedule = ({ className, ...props }: NewSceduleProps) => {
   return (
     <aside
       className={cx(
-        "w-full lg:max-w-lg min-h-full p-20 flex flex-col gap-6 items-center justify-center bg-gray-700 rounded-xl relative",
+        "w-full lg:max-w-lg min-h-full p-4 py-12 sm:p-20 flex flex-col gap-6 items-center justify-center bg-gray-700 rounded-xl relative",
         className
       )}
       {...props}

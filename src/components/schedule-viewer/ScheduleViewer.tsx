@@ -23,8 +23,11 @@ export const ScheduleViewer = ({
   }
 
   return (
-    <article className={cx("px-28 py-20 w-full", className)} {...props}>
-      <div className="flex justify-between items-center mb-8 gap-3">
+    <article
+      className={cx("px-2 py-12 sm:px-28 sm:py-20 w-full", className)}
+      {...props}
+    >
+      <div className="flex justify-between items-start mb-8 gap-3">
         <div className="flex flex-col gap-2">
           <Text as="h1" title size="lg" className="text-gray-100">
             Sua agenda
@@ -34,7 +37,7 @@ export const ScheduleViewer = ({
           </Text>
         </div>
         <DateInput
-          className="w-44"
+          className="w-fit sm:w-44"
           onChange={handleChangeDate}
           defaultValue={selectedDate}
         />
